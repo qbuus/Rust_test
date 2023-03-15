@@ -175,6 +175,7 @@ fn ioo() {
         .expect("failed to read line");
 
     // if it could not read we get whats inside expect
+    // read_line must use type String, so need to initialize it before
 
     println!("{}", input);
 }
