@@ -1,3 +1,5 @@
+use std::io; // using standard package = io module;
+
 /*
 rustfmt [filedir] auto text format
 cargo b = build
@@ -5,6 +7,8 @@ cargo t = test
 cargo c = check
 cargo r = run build
 cargo new [dirname] = creates rust project
+"::" mean access
+& = reference by default immutable. Must add "mut" to be
 */
 
 // fn main() {
@@ -93,21 +97,21 @@ u32 = unasignes INTEGER
 
 /*  SCALAR DATA TYPE = finite set of possibilities
 each of them can be compared to any other value
-as less, greater, equal 
+as less, greater, equal
 
 i32 asigned interger 32bit
 u32 unasigned interger 32bit
 */
 
-/*fn main() {  
-    // u32 || i32 are default values 
+/*fn main() {
+    // u32 || i32 are default values
     let x:i32 = 2;
     let x:u32 = 972;
 
     // u8 0 - 2^8 -1 = 0 - 255 range of numbers
     // i8 -2^7 - 2^7 - 1 = -127 - 127 range of numbers
 
-    /* 
+    /*
     i8
     i16
     i32
@@ -120,45 +124,57 @@ u32 unasigned interger 32bit
 /*fn main() {
     // bool => 1 = true, 0 = false
     let true_or_false: bool = false;
-    
+
     // char you must use single quote
     let letter: char = 'a';
     let number: char= '1';
 }
+
+floating value has 2 types = f32(single precision),
+f64 (double-precision);
 */
-
-
 
 /*
     COMPOUND DATA TYPE =  tuple, array.
 */
 fn main() {
     // tuple
-    let tup:(i32, bool, char) = (1, true, 's');
+    let tup: (i32, bool, char) = (1, true, 's');
 
     // can be mutable "mut"
-    let mut tup2:(i16, bool, char) = (-4, false, 'd');
+    let mut tup2: (i16, bool, char) = (-4, false, 'd');
 
     // number after "." stands for index same as [] in js
     println!("{}", tup2.2); // d
 
     // can be changed only if mutable
-    let mut tup3:(i32, bool, char) = (-11, true, 'p');
+    let mut tup3: (i32, bool, char) = (-11, true, 'p');
     tup3.1 = false;
     println!("{}", tup3.1);
 }
 
-
-/* 
+/*
 Arrays -> compound
 */
 fn array() {
-
     // can be changed if "mut"
-    let arr = [1,2,3,4,5];
+    let arr = [1, 2, 3, 4, 5];
     arr[1]; // 2
 
-    let arr2:[i32;3]= [1 , 3 , 4];
+    let arr2: [i32; 3] = [1, 3, 4];
     arr2[2]; // 4
     println!("{}", arr2[2]);
+}
+
+fn ioo() {
+    // mutable string that will be able to change later on
+    let mut input = String::new();
+
+    io::stdin()
+        .read_line(&mut input)
+        .expect("failed to read line");
+
+    // if it could not read we get whats inside expect
+
+    println!("{}", input);
 }
