@@ -1,4 +1,5 @@
-use std::io; // using standard package = io module;
+// using standard package = io module;
+use std::io;
 
 /*
 rustfmt [filedir] auto text format
@@ -137,26 +138,26 @@ f64 (double-precision);
 /*
     COMPOUND DATA TYPE =  tuple, array.
 */
-fn main() {
-    // tuple
-    let tup: (i32, bool, char) = (1, true, 's');
+// fn main() {
+//     // tuple
+//     let tup: (i32, bool, char) = (1, true, 's');
 
-    // can be mutable "mut"
-    let mut tup2: (i16, bool, char) = (-4, false, 'd');
+//     // can be mutable "mut"
+//     let mut tup2: (i16, bool, char) = (-4, false, 'd');
 
-    // number after "." stands for index same as [] in js
-    println!("{}", tup2.2); // d
+//     // number after "." stands for index same as [] in js
+//     println!("{}", tup2.2); // d
 
-    // can be changed only if mutable
-    let mut tup3: (i32, bool, char) = (-11, true, 'p');
-    tup3.1 = false;
-    println!("{}", tup3.1);
-}
+//     // can be changed only if mutable
+//     let mut tup3: (i32, bool, char) = (-11, true, 'p');
+//     tup3.1 = false;
+//     println!("{}", tup3.1);
+// }
 
 /*
 Arrays -> compound
 */
-fn array() {
+/* fn array() {
     // can be changed if "mut"
     let arr = [1, 2, 3, 4, 5];
     arr[1]; // 2
@@ -178,4 +179,19 @@ fn ioo() {
     // read_line must use type String, so need to initialize it before
 
     println!("{}", input);
+}
+*/
+
+// app that return whatever you type;
+fn main() {
+    fn input_reader() {
+        let mut input = String::new();
+
+        io::stdin()
+        .read_line(&mut input)
+        .expect("failed to read the user input");
+
+        println!("{}", input);
+    }
+    input_reader();
 }
