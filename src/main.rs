@@ -3,13 +3,24 @@ use std::io;
 
 /*
 rustfmt [filedir] auto text format
+
 cargo b = build
+
 cargo t = test
+
 cargo c = check
+
 cargo r = run build
+
 cargo new [dirname] = creates rust project
+
 "::" mean access
+
 & = reference by default immutable. Must add "mut" to be
+
+difference unwrap() expect() is that it expect() can return the
+message put inside when error occurs. unwrap just extracts value
+that you expect;
 */
 
 // fn main() {
@@ -188,10 +199,65 @@ fn main() {
         let mut input = String::new();
 
         io::stdin()
-        .read_line(&mut input)
-        .expect("failed to read the user input");
+            .read_line(&mut input)
+            .expect("failed to read the user input");
 
         println!("{}", input);
     }
     input_reader();
+
+    fn arithmetic() {
+        //let x: u8 = 250; // 0 - 255
+        //let y: i8 = 10; // -128 - 127
+
+        //let z = x + y;
+
+        // can not add u to i and can not add same with diff bits
+
+        //let a:i32 = 100;
+        //let b:i16 = 303;
+
+        //let c = a + b;
+
+        let e: u16 = 11;
+        let f: u16 = 12;
+
+        let g = f + e;
+        println!("result is {}", g);
+
+        //float literals
+        let ef: f32 = 10.5;
+        let fe: f32 = 9.4;
+
+        let ff = ef + fe;
+        println!("float integer {}", ff);
+
+        let float_v:f32 = 125.00;
+        let float_f:f32 = 20.00;
+        let result_of_float = float_v - float_f;
+        println!("{}", result_of_float);
+        
+        // %
+        let mod_y = float_v % float_f;
+        println!("mod is {}", mod_y);
+
+
+        // type conversion and casting
+
+        // can do with "_" or without. Up to you;
+        // can also add keyword "as";
+        // "as" does conversion
+        let ai = 12_i16;
+        let ia = 13 as i8;
+        println!("{}, {}", (ia as i16), ai);
+
+        // string to integer
+        let mut ajnput = String::new();
+        io::stdin().read_line(&mut ajnput).expect("failed");
+        // parse() string into another type
+        // unwrap() unwraps and returns actual value
+        let int_input: i32 = ajnput.trim().parse().unwrap();
+        println!("{}", int_input + 2);
+    }
+    arithmetic();
 }
