@@ -232,15 +232,14 @@ fn main() {
         let ff = ef + fe;
         println!("float integer {}", ff);
 
-        let float_v:f32 = 125.00;
-        let float_f:f32 = 20.00;
+        let float_v: f32 = 125.00;
+        let float_f: f32 = 20.00;
         let result_of_float = float_v - float_f;
         println!("{}", result_of_float);
-        
+
         // %
         let mod_y = float_v % float_f;
         println!("mod is {}", mod_y);
-
 
         // type conversion and casting
 
@@ -260,4 +259,44 @@ fn main() {
         println!("{}", int_input + 2);
     }
     arithmetic();
+
+    fn parses() {
+        let mut parsed: String = String::new();
+        io::stdin().read_line(&mut parsed).expect("failed");
+        let afterparse: i16 = parsed.trim().parse().unwrap();
+        println!("{}", afterparse + 15);
+    }  
+    parses();
+
+    fn conditions() {
+        let cond = 2 < 3;
+        let cond2 = (2 as f32) <= 2.2;
+        print!("{}, {}", cond, cond2);
+
+        let cond3 = true && cond;
+        
+        let cond4 = true || cond3; //both sides are true
+        println!("{}, {}", cond3, cond4);
+
+        let cond5 = !(true || cond);
+        println!("{}", cond5);
+
+        // condition order => ! && ||
+        // exception if inside parentesis
+    }
+    conditions();
+
+ // &str string slice 
+    fn food() {
+        let food: &str= "cookie";
+
+        if food == "cookie1" {
+            println!("Definitely theres a cookie in there");
+        } else if food == "fruit" {
+            println!("Theres a fruit in there");
+        } else {
+            println!("Theres something else");
+        }
+    }
+    food();
 }
